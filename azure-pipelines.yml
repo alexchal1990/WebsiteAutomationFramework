@@ -1,0 +1,28 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: window-latest
+
+steps:
+- script: dotnet restore
+  displayName: 'Restore packages'
+
+- script: |
+    dotnet build --configuration Release
+
+  displayName: 'Build solution'
+
+-  script: dotnet test --configuration Release --logger "trx"
+   displayName: 'Run Selenium tests'
+
+   -task: PublishTestResults@2
+   inputs:
+          testResultFormat: 'VSTest'
+          testResultFiles: '**/*.trx'
+          failTaskOnFailedTests: true
