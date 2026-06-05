@@ -21,7 +21,7 @@ steps:
 -  script: dotnet test --configuration Release --logger "trx"
    displayName: 'Run Selenium tests'
 
-   -task: PublishTestResults@2
+-  task: PublishTestResults@2
    inputs:
           testResultFormat: 'VSTest'
           testResultFiles: '**/*.trx'
