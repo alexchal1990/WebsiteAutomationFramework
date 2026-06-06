@@ -77,10 +77,4 @@ git pull origin master
 
 ---
 
-If you want, I can also add:
 
-- A **Git workflow section** (branching, commits, PRs)  
-- A **“How to contribute”** section  
-- A **“How to update dependencies”** section  
-
-Just tell me.
